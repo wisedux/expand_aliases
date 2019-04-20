@@ -1,5 +1,5 @@
 # expand_aliases
-Expand a mail `/etc/aliases` file so there's no nesting
+Recursively expand a mail `/etc/aliases` file so there's no nesting.
 
 Sometimes you want to know which aliases a given email address is a member 
 of.  You can do this by hand, but it is tedious if you have nested aliases. 
@@ -10,6 +10,10 @@ member of.
 This doesn't explicitly support all alias features, such as pipes.  If you 
 have any leaves that aren't email addresses or paths, it will call it 
 "WEIRD" but will probably work anyway.
+
+This script does not attempt to use SMTP `expn` or `vrfy` commands.  If you 
+want to try that, use the [expn](https://linux.die.net/man/1/expn) command. 
+Beware, it can be noisy for the postmaster.
 
 ## Usage
 
