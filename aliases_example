@@ -1,0 +1,12 @@
+# This is an example /etc/aliases file with three layers of 
+# nesting, duplicate addresses, and inconsistent space/tab use.
+
+nerds:  devs, admins,	bob@example.com
+devs:   sally@example.com, alice@example.com, bill@contoso.com
+admins: todd@example.com,susan@example.com
+
+eggheads: 	hr, sales, bob@example.com
+hr: 		otis@example.com, sandra@example.com
+sales: 		kent@example.com,  pat@example.com
+
+staff: nerds, eggheads
