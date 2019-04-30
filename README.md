@@ -34,24 +34,24 @@ optional arguments:
 To expand an aliases file, just specify the input as an argument.
 ```
 $ ./expand_aliases.py aliases_example
-nerds: sally@example.com,alice@example.com,bill@contoso.com,todd@example.com,susan@example.com,bob@example.com
-devs: sally@example.com,alice@example.com,bill@contoso.com
-admins: todd@example.com,susan@example.com
-eggheads: otis@example.com,sandra@example.com,kent@example.com,pat@example.com,bob@example.com
+eggheads: bob@example.com,otis@example.com,sandra@example.com,kent@example.com,pat@example.com
 hr: otis@example.com,sandra@example.com
 sales: kent@example.com,pat@example.com
-staff: sally@example.com,alice@example.com,bill@contoso.com,todd@example.com,susan@example.com,bob@example.com,otis@example.com,sandra@example.com,kent@example.com,pat@example.com,bob@example.com
+devs: sally@example.com,alice@example.com,bill@contoso.com
+admins: todd@example.com,susan@example.com
+nerds: susan@example.com,alice@example.com,sally@example.com,bob@example.com,todd@example.com,bill@contoso.com
+staff: susan@example.com,bob@example.com,otis@example.com,sally@example.com,sandra@example.com,alice@example.com,pat@example.com,todd@example.com,kent@example.com,bill@contoso.com
 ```
 
 If you want to know how many [local] members each alias has, specify 
 the `-c` flag:
 ```
 $ ./expand_aliases.py -c aliases_example
-6 nerds: sally@example.com,alice@example.com,bill@contoso.com,todd@example.com,susan@example.com,bob@example.com
-3 devs: sally@example.com,alice@example.com,bill@contoso.com
-2 admins: todd@example.com,susan@example.com
-5 eggheads: otis@example.com,sandra@example.com,kent@example.com,pat@example.com,bob@example.com
+5 eggheads: bob@example.com,otis@example.com,sandra@example.com,kent@example.com,pat@example.com
 2 hr: otis@example.com,sandra@example.com
 2 sales: kent@example.com,pat@example.com
-11 staff: sally@example.com,alice@example.com,bill@contoso.com,todd@example.com,susan@example.com,bob@example.com,otis@example.com,sandra@example.com,kent@example.com,pat@example.com,bob@example.com
+3 devs: sally@example.com,alice@example.com,bill@contoso.com
+2 admins: todd@example.com,susan@example.com
+6 nerds: susan@example.com,alice@example.com,sally@example.com,bob@example.com,todd@example.com,bill@contoso.com
+10 staff: susan@example.com,bob@example.com,otis@example.com,sally@example.com,sandra@example.com,alice@example.com,pat@example.com,todd@example.com,kent@example.com,bill@contoso.com
 ```
