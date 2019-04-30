@@ -38,18 +38,18 @@ with open(args.aliases, 'r') as aliases_file:
                     sys.stderr.write("DUPLICATE ALIAS (line=%s)\n" % line)
                 else:
                     members = right.split(",")
-                    aliases[left] = [m.strip() for m in members]
+                    aliases[left] = set([m.strip() for m in members])
 
 # Recursively resolve alias into its members.  Does case-insensitive search.
 def resolve_alias(alias_name, aliases):
     members = aliases[alias_name]
-    leaves = []
+    leaves = set([])
     for member in members:
         m = member.lower()
         if m in aliases:
-            leaves.extend(resolve_alias(m, aliases))
+            leaves.update(resolve_alias(m, aliases))
         else:
-            leaves.extend([member])
+            leaves.add(member)
     return leaves
 
 # Use resolve_aliases() to stitch together a complete aliases list down to leaves
@@ -60,8 +60,7 @@ for alias_name in aliases.keys():
 
 for alias, members in resolved_aliases.items():
     if args.count:
-        num_members = len(members)
-        print("%d %s: %s" % (num_members, alias, ','.join(members)))
+        print("%d %s: %s" % (len(members), alias, ','.join(members)))
     else:
         print("%s: %s" % (alias, ','.join(members)))
     for m in members:
